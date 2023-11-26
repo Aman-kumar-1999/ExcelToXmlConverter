@@ -1,0 +1,765 @@
+<xs:schema attributeFormDefault="unqualified"
+	elementFormDefault="qualified"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="ShipmentRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Request">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="ServiceHeader">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element type="xs:dateTime" name="MessageTime" />
+										<xs:element type="xs:integer"
+											name="MessageReference" />
+										<xs:element type="xs:string" name="SiteID" />
+										<xs:element type="xs:string" name="Password" />
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="MetaData">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element type="xs:string" name="SoftwareName" />
+										<xs:element type="xs:float" name="SoftwareVersion" />
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="RegionCode" type="xs:string" />
+				<xs:element name="LanguageCode" type="xs:string" />
+				<xs:element name="Billing">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element type="xs:string"
+								name="ShipperAccountNumber" />
+							<xs:element type="xs:string"
+								name="ShippingPaymentType" />
+							<xs:element type="xs:string"
+								name="BillingAccountNumber" />
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="Consignee">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element type="xs:string" name="CompanyName" />
+							<xs:element type="xs:string" name="AddressLine1" />
+							<xs:element type="xs:string" name="AddressLine2" />
+							<xs:element type="xs:string" name="AddressLine3" />
+							<xs:element type="xs:string" name="City" />
+							<xs:element type="xs:int" name="PostalCode" />
+							<xs:element type="xs:string" name="CountryCode" />
+							<xs:element type="xs:string" name="CountryName" />
+							<xs:element name="Contact">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element type="xs:string" name="PersonName" />
+										<xs:element type="xs:long" name="PhoneNumber" />
+										<xs:element type="xs:string" name="PhoneExtension" />
+										<xs:element type="xs:byte" name="FaxNumber" />
+										<xs:element type="xs:string" name="Email" />
+										<xs:element type="xs:long" name="MobilePhoneNumber" />
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element type="xs:string" name="StreetName" />
+							<xs:element type="xs:string" name="BuildingName" />
+							<xs:element type="xs:string" name="StreetNumber" />
+							<xs:element name="RegistrationNumbers">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="RegistrationNumber"
+											maxOccurs="unbounded" minOccurs="0">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element type="xs:long" name="Number" />
+													<xs:element type="xs:string"
+														name="NumberTypeCode" />
+													<xs:element type="xs:string"
+														name="NumberIssuerCountryCode" />
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element type="xs:string"
+								name="BusinessPartyTypeCode" />
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="Dutiable">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element type="xs:float" name="DeclaredValue" />
+							<xs:element type="xs:string" name="DeclaredCurrency" />
+							<xs:element type="xs:string" name="ShipperEIN" />
+							<xs:element type="xs:string" name="TermsOfTrade" />
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="UseDHLInvoice" type="xs:string" />
+				<xs:element name="DHLInvoiceLanguageCode"
+					type="xs:string" />
+				<xs:element name="DHLInvoiceType" type="xs:string" />
+				<xs:element name="ExportDeclaration">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element type="xs:string" name="InterConsignee" />
+							<xs:element type="xs:string" name="IsPartiesRelation" />
+							<xs:element type="xs:string" name="SignatureName" />
+							<xs:element type="xs:string" name="SignatureTitle" />
+							<xs:element type="xs:string" name="ExportReason" />
+							<xs:element type="xs:string" name="ExportReasonCode" />
+							<xs:element type="xs:string" name="InvoiceNumber" />
+							<xs:element type="xs:date" name="InvoiceDate" />
+							<xs:element type="xs:string" name="Remarks" />
+							<xs:element name="OtherCharges">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="OtherCharge"
+											maxOccurs="unbounded" minOccurs="0">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element type="xs:string"
+														name="OtherChargeCaption" />
+													<xs:element type="xs:float"
+														name="OtherChargeValue" />
+													<xs:element type="xs:string"
+														name="OtherChargeType" />
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element type="xs:string" name="TermsOfPayment" />
+							<xs:element type="xs:string" name="SignatureImage" />
+							<xs:element type="xs:string" name="ReceiverReference" />
+							<xs:element type="xs:int" name="ExporterId" />
+							<xs:element type="xs:string" name="ExporterCode" />
+							<xs:element type="xs:string" name="PackageMarks" />
+							<xs:element type="xs:string" name="OtherRemarks2" />
+							<xs:element type="xs:string" name="OtherRemarks3" />
+							<xs:element type="xs:string" name="AddDeclText1" />
+							<xs:element name="ExportLineItem"
+								maxOccurs="unbounded" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element type="xs:byte" name="LineNumber" />
+										<xs:element type="xs:byte" name="Quantity" />
+										<xs:element type="xs:string" name="QuantityUnit" />
+										<xs:element type="xs:string" name="Description" />
+										<xs:element type="xs:float" name="Value" />
+										<xs:element type="xs:string" name="CommodityCode" />
+										<xs:element name="Weight">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element type="xs:float" name="Weight" />
+													<xs:element type="xs:string" name="WeightUnit" />
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="GrossWeight">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element type="xs:float" name="Weight" />
+													<xs:element type="xs:string" name="WeightUnit" />
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element type="xs:string"
+											name="ManufactureCountryCode" />
+										<xs:element type="xs:string"
+											name="ImportCommodityCode" />
+										<xs:element name="ItemReferences">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="ItemReference"
+														maxOccurs="unbounded" minOccurs="0">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element type="xs:string"
+																	name="ItemReferenceType" />
+																<xs:element type="xs:long"
+																	name="ItemReferenceNumber" />
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="CustomsPaperworks">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="CustomsPaperwork">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element type="xs:string"
+																	name="CustomsPaperworkType" />
+																<xs:element type="xs:string"
+																	name="CustomsPaperworkID" />
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element type="xs:string"
+								name="InvoiceInstructions" />
+							<xs:element type="xs:string" name="PlaceOfIncoterm" />
+							<xs:element type="xs:string" name="ShipmentPurpose" />
+							<xs:element type="xs:string" name="DocumentFunction" />
+							<xs:element name="CustomsDocuments">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="CustomsDocument">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element type="xs:string"
+														name="CustomsDocumentType" />
+													<xs:element type="xs:string"
+														name="CustomsDocumentID" />
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element type="xs:float"
+								name="InvoiceTotalNetWeight" />
+							<xs:element type="xs:float"
+								name="InvoiceTotalGrossWeight" />
+							<xs:element name="InvoiceReferences">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="InvoiceReference"
+											maxOccurs="unbounded" minOccurs="0">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element type="xs:string"
+														name="InvoiceReferenceType" />
+													<xs:element type="xs:string"
+														name="InvoiceReferenceNumber" />
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="InvoiceIndicativeCustomsValues">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element type="xs:float"
+											name="ImportCustomsDutyValue" />
+										<xs:element type="xs:float" name="ImportTaxesValue" />
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="Reference">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element type="xs:string" name="ReferenceID" />
+							<xs:element type="xs:string" name="ReferenceType" />
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="ShipmentDetails">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Pieces">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="Piece" maxOccurs="unbounded"
+											minOccurs="0">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element type="xs:byte" name="PieceID" />
+													<xs:element type="xs:string" name="PackageType" />
+													<xs:element type="xs:float" name="Weight" />
+													<xs:element type="xs:byte" name="Width" />
+													<xs:element type="xs:byte" name="Height" />
+													<xs:element type="xs:byte" name="Depth" />
+													<xs:element type="xs:string"
+														name="PieceContents" />
+													<xs:element name="PieceReference">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element type="xs:string"
+																	name="ReferenceID" />
+																<xs:element type="xs:string"
+																	name="ReferenceType" />
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+													<xs:element name="AdditionalInformation">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="CustomerBarcodes">
+																	<xs:complexType>
+																		<xs:sequence>
+																			<xs:element type="xs:byte"
+																				name="BarcodeType" />
+																			<xs:element type="xs:int"
+																				name="BarcodeContent" />
+																			<xs:element type="xs:int"
+																				name="TextBelowBarcode" />
+																		</xs:sequence>
+																	</xs:complexType>
+																</xs:element>
+																<xs:element
+																	name="CustomerAdditionalInformation">
+																	<xs:complexType>
+																		<xs:sequence>
+																			<xs:element type="xs:string"
+																				name="Caption" />
+																			<xs:element type="xs:string"
+																				name="Description" />
+																		</xs:sequence>
+																	</xs:complexType>
+																</xs:element>
+																<xs:element type="xs:string"
+																	name="CustomerDescription" />
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+													<xs:element type="xs:string"
+														name="ParentPieceIdentificationNumber" />
+													<xs:element type="xs:string"
+														name="PieceIdentificationNumber" />
+													<xs:element type="xs:string"
+														name="UseOwnPieceIdentificationNumber" />
+													<xs:element type="xs:string"
+														name="PieceIdentificationNumberDataIdentifier" />
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element type="xs:string" name="WeightUnit" />
+							<xs:element type="xs:string" name="GlobalProductCode" />
+							<xs:element type="xs:string" name="LocalProductCode" />
+							<xs:element type="xs:date" name="Date" />
+							<xs:element type="xs:string" name="Contents" />
+							<xs:element type="xs:string" name="DimensionUnit" />
+							<xs:element type="xs:string" name="PackageType" />
+							<xs:element type="xs:string" name="IsDutiable" />
+							<xs:element type="xs:string" name="CurrencyCode" />
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="Shipper">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element type="xs:string" name="ShipperID" />
+							<xs:element type="xs:string" name="CompanyName" />
+							<xs:element type="xs:string" name="AddressLine1" />
+							<xs:element type="xs:string" name="AddressLine2" />
+							<xs:element type="xs:string" name="AddressLine3" />
+							<xs:element type="xs:string" name="City" />
+							<xs:element type="xs:string" name="DivisionCode" />
+							<xs:element type="xs:int" name="PostalCode" />
+							<xs:element type="xs:string" name="CountryCode" />
+							<xs:element type="xs:string" name="CountryName" />
+							<xs:element name="Contact">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element type="xs:string" name="PersonName" />
+										<xs:element type="xs:string" name="PhoneNumber" />
+										<xs:element type="xs:short" name="PhoneExtension" />
+										<xs:element type="xs:long" name="FaxNumber" />
+										<xs:element type="xs:int" name="Telex" />
+										<xs:element type="xs:string" name="Email" />
+										<xs:element type="xs:long" name="MobilePhoneNumber" />
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element type="xs:string" name="StreetName" />
+							<xs:element type="xs:string" name="BuildingName" />
+							<xs:element type="xs:string" name="StreetNumber" />
+							<xs:element name="RegistrationNumbers">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="RegistrationNumber"
+											maxOccurs="unbounded" minOccurs="0">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element type="xs:string" name="Number" />
+													<xs:element type="xs:string"
+														name="NumberTypeCode" />
+													<xs:element type="xs:string"
+														name="NumberIssuerCountryCode" />
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element type="xs:string"
+								name="BusinessPartyTypeCode" />
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="SpecialService">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element type="xs:string" name="SpecialServiceType" />
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="EProcShip" type="xs:string" />
+				<xs:element name="LabelImageFormat" type="xs:string" />
+				<xs:element name="RequestArchiveDoc" type="xs:string" />
+				<xs:element name="NumberOfArchiveDoc" type="xs:byte" />
+				<xs:element name="Label">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element type="xs:string" name="HideAccount" />
+							<xs:element type="xs:string" name="LabelTemplate" />
+							<xs:element type="xs:string"
+								name="CustomsInvoiceTemplate" />
+							<xs:element type="xs:string" name="Logo" />
+							<xs:element name="CustomerLogo">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element type="xs:string" name="LogoImage" />
+										<xs:element type="xs:string" name="LogoImageFormat" />
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="DGs">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="DG">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element type="xs:short" name="DG_ContentID" />
+										<xs:element type="xs:string" name="DG_LabelDesc" />
+										<xs:element type="xs:byte" name="DG_NetWeight" />
+										<xs:element type="xs:string" name="DG_UOM" />
+										<xs:element type="xs:short" name="DG_UNCode" />
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="GetPriceEstimate" type="xs:string" />
+				<xs:element name="SinglePieceImage" type="xs:string" />
+				<xs:element name="Importer">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element type="xs:string" name="CompanyName" />
+							<xs:element type="xs:string" name="AddressLine1" />
+							<xs:element type="xs:string" name="AddressLine2" />
+							<xs:element type="xs:string" name="AddressLine3" />
+							<xs:element type="xs:string" name="City" />
+							<xs:element type="xs:string" name="PostalCode" />
+							<xs:element type="xs:string" name="CountryCode" />
+							<xs:element type="xs:string" name="CountryName" />
+							<xs:element name="Contact">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element type="xs:string" name="PersonName" />
+										<xs:element type="xs:string" name="PhoneNumber" />
+										<xs:element type="xs:int" name="PhoneExtension" />
+										<xs:element type="xs:long" name="FaxNumber" />
+										<xs:element type="xs:int" name="Telex" />
+										<xs:element type="xs:string" name="Email" />
+										<xs:element type="xs:long" name="MobilePhoneNumber" />
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element type="xs:string" name="StreetName" />
+							<xs:element type="xs:string" name="BuildingName" />
+							<xs:element type="xs:string" name="StreetNumber" />
+							<xs:element name="RegistrationNumbers">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="RegistrationNumber"
+											maxOccurs="unbounded" minOccurs="0">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element type="xs:string" name="Number" />
+													<xs:element type="xs:string"
+														name="NumberTypeCode" />
+													<xs:element type="xs:string"
+														name="NumberIssuerCountryCode" />
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element type="xs:string"
+								name="BusinessPartyTypeCode" />
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="Exporter">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element type="xs:string" name="CompanyName" />
+							<xs:element type="xs:string"
+								name="SuiteDepartmentName" />
+							<xs:element type="xs:string" name="AddressLine1" />
+							<xs:element type="xs:string" name="AddressLine2" />
+							<xs:element type="xs:string" name="AddressLine3" />
+							<xs:element type="xs:string" name="City" />
+							<xs:element type="xs:int" name="PostalCode" />
+							<xs:element type="xs:string" name="CountryCode" />
+							<xs:element type="xs:string" name="CountryName" />
+							<xs:element name="Contact">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element type="xs:string" name="PersonName" />
+										<xs:element type="xs:long" name="PhoneNumber" />
+										<xs:element type="xs:int" name="PhoneExtension" />
+										<xs:element type="xs:long" name="FaxNumber" />
+										<xs:element type="xs:byte" name="Telex" />
+										<xs:element type="xs:string" name="Email" />
+										<xs:element type="xs:long" name="MobilePhoneNumber" />
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element type="xs:string" name="StreetName" />
+							<xs:element type="xs:string" name="BuildingName" />
+							<xs:element type="xs:string" name="StreetNumber" />
+							<xs:element name="RegistrationNumbers">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="RegistrationNumber">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element type="xs:string" name="Number" />
+													<xs:element type="xs:string"
+														name="NumberTypeCode" />
+													<xs:element type="xs:string"
+														name="NumberIssuerCountryCode" />
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element type="xs:string"
+								name="BusinessPartyTypeCode" />
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="Seller">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element type="xs:string" name="CompanyName" />
+							<xs:element type="xs:string"
+								name="SuiteDepartmentName" />
+							<xs:element type="xs:string" name="AddressLine1" />
+							<xs:element type="xs:string" name="AddressLine2" />
+							<xs:element type="xs:string" name="AddressLine3" />
+							<xs:element type="xs:string" name="City" />
+							<xs:element type="xs:string" name="Division" />
+							<xs:element type="xs:string" name="DivisionCode" />
+							<xs:element type="xs:short" name="PostalCode" />
+							<xs:element type="xs:string" name="CountryCode" />
+							<xs:element type="xs:string" name="CountryName" />
+							<xs:element name="Contact">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element type="xs:string" name="PersonName" />
+										<xs:element type="xs:int" name="PhoneNumber" />
+										<xs:element type="xs:short" name="PhoneExtension" />
+										<xs:element type="xs:short" name="FaxNumber" />
+										<xs:element type="xs:short" name="Telex" />
+										<xs:element type="xs:string" name="Email" />
+										<xs:element type="xs:long" name="MobilePhoneNumber" />
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element type="xs:string" name="Suburb" />
+							<xs:element type="xs:string" name="StreetName" />
+							<xs:element type="xs:string" name="BuildingName" />
+							<xs:element type="xs:string" name="StreetNumber" />
+							<xs:element name="RegistrationNumbers">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="RegistrationNumber">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element type="xs:string" name="Number" />
+													<xs:element type="xs:string"
+														name="NumberTypeCode" />
+													<xs:element type="xs:string"
+														name="NumberIssuerCountryCode" />
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element type="xs:string"
+								name="BusinessPartyTypeCode" />
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="Payer">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element type="xs:string" name="CompanyName" />
+							<xs:element type="xs:string"
+								name="SuiteDepartmentName" />
+							<xs:element type="xs:string" name="AddressLine1" />
+							<xs:element type="xs:string" name="AddressLine2" />
+							<xs:element type="xs:string" name="AddressLine3" />
+							<xs:element type="xs:string" name="City" />
+							<xs:element type="xs:string" name="Division" />
+							<xs:element type="xs:string" name="DivisionCode" />
+							<xs:element type="xs:string" name="PostalCode" />
+							<xs:element type="xs:string" name="CountryCode" />
+							<xs:element type="xs:string" name="CountryName" />
+							<xs:element name="Contact">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element type="xs:string" name="PersonName" />
+										<xs:element type="xs:long" name="PhoneNumber" />
+										<xs:element type="xs:short" name="PhoneExtension" />
+										<xs:element type="xs:int" name="FaxNumber" />
+										<xs:element type="xs:int" name="Telex" />
+										<xs:element type="xs:string" name="Email" />
+										<xs:element type="xs:long" name="MobilePhoneNumber" />
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element type="xs:string" name="Suburb" />
+							<xs:element type="xs:string" name="StreetName" />
+							<xs:element type="xs:string" name="BuildingName" />
+							<xs:element type="xs:string" name="StreetNumber" />
+							<xs:element name="RegistrationNumbers">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="RegistrationNumber">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element type="xs:string" name="Number" />
+													<xs:element type="xs:string"
+														name="NumberTypeCode" />
+													<xs:element type="xs:string"
+														name="NumberIssuerCountryCode" />
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element type="xs:string"
+								name="BusinessPartyTypeCode" />
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="BypassPLTError" type="xs:string" />
+				<xs:element name="UltimateConsignee">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element type="xs:string" name="CompanyName" />
+							<xs:element type="xs:short" name="AddressLine1" />
+							<xs:element type="xs:string" name="AddressLine2" />
+							<xs:element type="xs:string" name="City" />
+							<xs:element type="xs:short" name="PostalCode" />
+							<xs:element type="xs:string" name="CountryCode" />
+							<xs:element type="xs:string" name="CountryName" />
+							<xs:element name="Contact">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element type="xs:string" name="PersonName" />
+										<xs:element type="xs:int" name="PhoneNumber" />
+										<xs:element type="xs:string" name="Email" />
+										<xs:element type="xs:int" name="MobilePhoneNumber" />
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element type="xs:string" name="Suburb" />
+							<xs:element name="RegistrationNumbers">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="RegistrationNumber">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element type="xs:int" name="Number" />
+													<xs:element type="xs:string"
+														name="NumberTypeCode" />
+													<xs:element type="xs:string"
+														name="NumberIssuerCountryCode" />
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element type="xs:string"
+								name="BusinessPartyTypeCode" />
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="Buyer">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element type="xs:string" name="CompanyName" />
+							<xs:element type="xs:short" name="AddressLine1" />
+							<xs:element type="xs:string" name="AddressLine2" />
+							<xs:element type="xs:string" name="City" />
+							<xs:element type="xs:short" name="PostalCode" />
+							<xs:element type="xs:string" name="CountryCode" />
+							<xs:element type="xs:string" name="CountryName" />
+							<xs:element name="Contact">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element type="xs:string" name="PersonName" />
+										<xs:element type="xs:int" name="PhoneNumber" />
+										<xs:element type="xs:string" name="Email" />
+										<xs:element type="xs:int" name="MobilePhoneNumber" />
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element type="xs:string" name="Suburb" />
+							<xs:element name="RegistrationNumbers">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="RegistrationNumber">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element type="xs:int" name="Number" />
+													<xs:element type="xs:string"
+														name="NumberTypeCode" />
+													<xs:element type="xs:string"
+														name="NumberIssuerCountryCode" />
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element type="xs:string"
+								name="BusinessPartyTypeCode" />
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="StrictValidation" type="xs:string" />
+				<xs:element name="RequestShipmentDataValidation"
+					type="xs:string" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>
