@@ -4,6 +4,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.StringReader;
 import java.io.StringWriter;
 import java.math.BigInteger;
@@ -25,6 +26,8 @@ import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.springframework.http.RequestEntity;
+import org.springframework.stereotype.Service;
 
 //import com.codea2z.xmlobject.ShipmentRequest;
 //import com.codea2z.xmlobject.ShipmentRequest.Billing;
@@ -81,19 +84,20 @@ import generated.ShipmentRequest.SpecialService;
 //import jakarta.xml.bind.JAXBException;
 //import jakarta.xml.bind.Marshaller;
 //import jakarta.xml.bind.Unmarshaller;
-
+@Service
 public class DHLClient {
 
-	public String data() {
+	public String data(InputStream file) {
+	//public RequestEntity<?> data(InputStream file) {
 		
-		String responseData;
+		String responseData = null;
 
 		try {
 			String str = "9128984478";
 
 			ShipmentRequest shipmentRequest = new ShipmentRequest();
 			
-			FileInputStream file = new FileInputStream("D://rough/Excel_To_Xml_Converter/ExcelToXmlConverter/src/main/resources/excel/DHL_XML_Data.xlsx");
+			//FileInputStream file = new FileInputStream("D://rough/Excel_To_Xml_Converter/ExcelToXmlConverter/src/main/resources/excel/DHL_XML_Data.xlsx");
 	            //Workbook workbook = new XSSFWorkbook();
 	            XSSFWorkbook workbook = new XSSFWorkbook(file);
 	            // Assuming the data starts from the second row
@@ -445,14 +449,19 @@ public class DHLClient {
 			System.out.println("W ::::::::::::::  " + marshalToXml(shipmentRequest));
 			responseData = marshalToXml(shipmentRequest);
 			
+			//object3 = marshalToXml(shipmentRequest);
+			
 		} catch (Exception e) {
 			// TODO Auto-com.codea2z.xmlobject catch block
+			responseData = "Through Exception.";
 			e.printStackTrace();
 		}
 
 		// Create a Marshaller
 
-		return null;
+		return responseData;
+		//return RequestEntity.ok(responseData);
+		
 	}
 	
 	private static String marshalToXml(Object obj) throws JAXBException {

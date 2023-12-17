@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created with Liquid Technologies Online Tools 1.0 (https://www.liquid-technologies.com) -->
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="CBE-XIII">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Header">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Courier_Registration_Number" type="xs:string" />
+              <xs:element name="Name_of_the_Authorized_Courier" type="xs:string" />
+              <xs:element name="Address_of_the_Authorized_Courier">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="Address_1" type="xs:string" />
+                    <xs:element name="Address_2" type="xs:string" />
+                    <xs:element name="City" type="xs:string" />
+                    <xs:element name="State" type="xs:string" />
+                    <xs:element name="Postal_Code" type="xs:unsignedInt" />
+                    <xs:element name="Country" type="xs:string" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="Airlines_Name" type="xs:string" />
+              <xs:element name="Flight_Number" type="xs:string" />
+              <xs:element name="Airport_of_Arrival" type="xs:string" />
+              <xs:element name="First_Port_of_Arrival" type="xs:string" />
+              <xs:element name="Date_of_arrival" type="xs:string" />
+              <xs:element name="Time_of_arrival" type="xs:string" />
+              <xs:element name="Airport_of_Shippment" type="xs:string" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="HAWB_Number">
+          <xs:complexType mixed="true">
+            <xs:sequence>
+              <xs:element name="HAWB_CRN" type="xs:string" />
+              <xs:element name="CRN_Details">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="CRN_No" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="Number_of_MPS_Packages" type="xs:unsignedByte" />
+              <xs:element name="Number_of_Items_in_HAWB" type="xs:unsignedByte" />
+              <xs:element name="Country_of_Exportation" type="xs:string" />
+              <xs:element name="Unique_Consignment_Reference_No" />
+              <xs:element name="Name_of_the_Consignor" type="xs:string" />
+              <xs:element name="Address_of_the_Consignor">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="Address_1" type="xs:string" />
+                    <xs:element name="Address_2" />
+                    <xs:element name="City" type="xs:string" />
+                    <xs:element name="State" />
+                    <xs:element name="Postal_Code" type="xs:unsignedInt" />
+                    <xs:element name="Country" type="xs:string" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="Name_of_the_Consignee" type="xs:string" />
+              <xs:element name="Address_of_the_Consignee">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="Address_1" type="xs:string" />
+                    <xs:element name="Address_2" type="xs:string" />
+                    <xs:element name="City" type="xs:string" />
+                    <xs:element name="State" />
+                    <xs:element name="Postal_Code" type="xs:unsignedInt" />
+                    <xs:element name="Country" type="xs:string" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="Import_Export_Code" type="xs:unsignedInt" />
+              <xs:element name="IEC_Branch_Code" type="xs:unsignedByte" />
+              <xs:element name="Special_Requests" />
+              <xs:element name="Gross_Weight" type="xs:decimal" />
+              <xs:element name="Net_Weight" type="xs:decimal" />
+              <xs:element name="GSTIN_Type" type="xs:string" />
+              <xs:element name="GSTIN_Number" type="xs:string" />
+              <xs:element name="State_code" type="xs:unsignedByte" />
+              <xs:element name="AD_Code" type="xs:unsignedInt" />
+              <xs:element name="GOV_NONGOV_TYPE" type="xs:string" />
+              <xs:element name="Item_Desc">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="License_Type" />
+                    <xs:element name="License_Number" />
+                    <xs:element name="CTSH" type="xs:unsignedInt" />
+                    <xs:element name="CETSH" type="xs:unsignedInt" />
+                    <xs:element name="Country_of_Origin" type="xs:string" />
+                    <xs:element name="Description_of_Goods" type="xs:string" />
+                    <xs:element name="Name_of_Manufacturer" />
+                    <xs:element name="Address_of_Manufacturer">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="Address_1" />
+                          <xs:element name="Address_2" />
+                          <xs:element name="City" />
+                          <xs:element name="State" />
+                          <xs:element name="Postal_Code" />
+                          <xs:element name="Country" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="Number_of_Packages" type="xs:unsignedByte" />
+                    <xs:element name="Marks_Number_of_Packages" />
+                    <xs:element name="Unit_of_Measure" type="xs:string" />
+                    <xs:element name="Quantity" type="xs:decimal" />
+                    <xs:element name="Invoice_Number" type="xs:unsignedInt" />
+                    <xs:element name="Invoice_Value" type="xs:decimal" />
+                    <xs:element name="Invoice_Currency" type="xs:string" />
+                    <xs:element name="Rate_of_Exchange" type="xs:decimal" />
+                    <xs:element name="RSP" />
+                    <xs:element name="Incoterms" type="xs:string" />
+                    <xs:element name="Discount_Amount" />
+                    <xs:element name="Discount_Currency" />
+                    <xs:element name="Assessable_Value" type="xs:decimal" />
+                    <xs:element name="Freight_Charges" type="xs:decimal" />
+                    <xs:element name="Landing_Charges" type="xs:decimal" />
+                    <xs:element name="Insurance" type="xs:decimal" />
+                    <xs:element name="RSPFlag" type="xs:string" />
+                    <xs:element name="Charges">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="Charge_Type" />
+                          <xs:element name="Charge_Amount" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="Notification">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="Tariff_Notification">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="Tariff_Notification_Number" type="xs:string" />
+                                <xs:element name="Tariff_Notification_Serial_Number" type="xs:unsignedByte" />
+                                <xs:element name="List_Number" />
+                                <xs:element name="List_Serial_Number" />
+                                <xs:element name="Quantity_Unit" type="xs:decimal" />
+                                <xs:element name="Quantity_Measure" type="xs:string" />
+                                <xs:element name="Notification_Type" type="xs:string" />
+                                <xs:element name="Notification_SubType" type="xs:string" />
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="NonTariff_Notification">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="NonTariff_Notification_Number" />
+                                <xs:element name="NonTariff_Notification_Serial_Number" />
+                                <xs:element name="List_Number" />
+                                <xs:element name="List_Serial_Number" />
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element maxOccurs="unbounded" name="IGST_Notification">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="IGST_Notification_Number" type="xs:string" />
+                                <xs:element name="IGST_Serial_Number" type="xs:string" />
+                                <xs:element name="IGST_Type" type="xs:string" />
+                                <xs:element name="IGST_Sub_Type" type="xs:string" />
+                                <xs:element name="IGST_Rate" type="xs:decimal" />
+                                <xs:element name="IGST_Condition" />
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="ABATE_RATE" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Transaction-Date-Time" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
