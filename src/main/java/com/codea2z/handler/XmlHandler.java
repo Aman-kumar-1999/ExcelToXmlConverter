@@ -71,9 +71,9 @@ import com.google.gson.JsonObject;
 //import com.codea2z.xmlobject.Request;
 //import com.codea2z.xmlobject.Request.MetaData;
 //import com.codea2z.xmlobject.Request.ServiceHeader;
-import jakarta.xml.bind.JAXBContext;
-import jakarta.xml.bind.JAXBException;
-import jakarta.xml.bind.Marshaller;
+//import jakarta.xml.bind.JAXBContext;
+//import jakarta.xml.bind.JAXBException;
+//import jakarta.xml.bind.Marshaller;
 
 import java.io.File;
 //import java.io.IOException;
