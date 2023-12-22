@@ -131,6 +131,7 @@
 					<schemaIncludes>
 						<include>*.xsd</include>
 					</schemaIncludes>
+					<executable>true</executable>
 				</configuration>
 			</plugin>
 		</plugins>
