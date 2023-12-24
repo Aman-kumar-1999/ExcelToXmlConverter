@@ -1,0 +1,109 @@
+##spring:
+##  config:
+###    import: optional:configserver:http://13.233.173.112:5001 # personal eqipped prod
+###    import: optional:configserver:http://44.210.146.251:5001 # for eqipped prod
+###    import: optional:configserver:http://3.7.18.180:5001 # pord
+##    import: optional:configserver:http://localhost:5001  # test
+##
+##
+##
+##  profiles:
+##    active: user
+#
+#server:
+#  port: 5003
+#
+## Eureka start
+#eureka:
+#  instance:
+#    prefer-ip-address: true
+#  client:
+#    fetch-registry: true
+#    register-with-eureka: true
+#    service-url:
+#      #defaultZone: http://3.7.18.180:5000/eureka
+#      defaultZone: http://localhost:5000/eureka
+## Eureka End
+#
+## Spring Start
+#spring:
+#  application:
+#    name: ODER-SERVICE
+##  data:
+##    mongodb:
+##      uri: mongodb+srv://admin:gsk3E1ZwjWwgqAoC@cluster0.9xkoq.mongodb.net/
+##      database: eqipped_new
+#  #   datasource:
+#  #     url: jdbc:oracle:thin:@localhost:1521:xe
+#  #     username: microserviceUserService
+#  #     password: root
+#  #     driverClassName: oracle.jdbc.OracleDriver
+#  #   jpa:
+#  #     hibernate:
+#  #       ddl-auto: update
+#  #     show-sql: true
+#  #     properties:
+#  #       hibernate:
+#  #         dialect: org.hibernate.dialect.Oracle10gDialect
+#  #         format_sql: true
+#
+#  #   config:
+#  #     import: optional:configserver:http://localhost:5001
+#
+#  mail:
+#    host: smtp.gmail.com
+#    port: 587
+#    username: gearloose.lab@gmail.com
+#    password: jngrwtnaeuaoyord
+#    properties:
+#      mail:
+#        smtp:
+#          auth: true
+#          starttls:
+#            enable: true
+## Spring End
+#
+#management:
+#  health:
+#    circuitbreakers:
+#      enabled: true
+#  endpoints:
+#    web:
+#      exposure:
+#        include: health
+#
+#  endpoint:
+#    health:
+#      show-details: always
+#
+#
+## Start Circuit Breakers through resilience4j server (if another service or server has down then it will return our circiut breakers methods)
+#
+#resilience4j:
+#  circuitbreaker:
+#    instances:
+#      ratingHotelBreaker:
+#        registerHealthIndicator: true
+#        eventConsumerBufferSize: 10
+#        failureRateThreshold: 50
+#        minimumNumberOfCalls: 5
+#        automaticTransitionFromOpenToHalfOpenEnabled: true
+#        waitDurationInOpenState: 6s
+#        permittedNumberOfCallsInHalfOpenState: 3
+#        slidingWindowSize: 10
+#        slidingWindowType: COUNT_BASED
+#
+#  # Retry Server through resilience4j server (if server is trying multipule time to connect to another server of another server is down then it will return to our methods)
+#  retry:
+#    instances:
+#      ratingHotelService:
+#        max-attempts: 3
+#        wait-duration: 5s
+#
+#  # Rate Limiter
+#  ratelimiter:
+#    instances:
+#      userRateLimiter:
+#        limit-refresh-period: 4s
+#        limit-for-period: 2
+#        timeout-duration: 2s
